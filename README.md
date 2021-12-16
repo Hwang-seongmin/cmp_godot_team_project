@@ -1,4 +1,4 @@
-# cmp_godot(Team Project)
+# CMP Processing Team06 Project
 
 ## Credits
 - 201621085 Gwang-jin Kim
