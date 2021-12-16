@@ -1,0 +1,237 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tiles/tileset.res" type="TileSet" id=2]
+[ext_resource path="res://Scenes/soul.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/HUD.gd" type="Script" id=4]
+[ext_resource path="res://Font/KOTRA HOPE_TTF.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scenes/icicle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Ice.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Byunsung.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sound/CollectSound.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/SlidingPlayer.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Projectile.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/ProgressBar.gd" type="Script" id=13]
+[ext_resource path="res://Sound/ShootSound.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Scenes/cloud.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/FistKing.tscn" type="PackedScene" id=16]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.890196, 0.164706, 0.164706, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.898039, 0.866667, 0.294118, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.34902, 0.34902, 0.34902, 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 5 )
+
+[node name="HellOfInjustice" type="Node2D"]
+
+[node name="Byunsung" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3851, 220 )
+FistKing = ExtResource( 16 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 322, 352 )
+script = ExtResource( 11 )
+Projectile = ExtResource( 12 )
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2( -311, -165 )
+stream = ExtResource( 14 )
+volume_db = 5.522
+
+[node name="HealthBar" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+margin_left = 3756.0
+margin_top = 27.0
+margin_right = 3912.0
+margin_bottom = 48.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+value = 100.0
+percent_visible = false
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="HealthBar/ProgressBar"]
+show_behind_parent = true
+margin_right = 156.0
+margin_bottom = 21.0
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="HealthBar/ProgressBar"]
+wait_time = 0.2
+one_shot = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 4 )
+
+[node name="souls" type="Label" parent="HUD"]
+margin_left = 441.0
+margin_top = 28.0
+margin_right = 632.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 1 )
+text = "00"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Live" type="Label" parent="HUD"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goal" type="Label" parent="HUD"]
+margin_left = 144.0
+margin_top = -2.0
+margin_right = 381.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 3 )
+text = "Goal souls : 500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource( 9 )
+volume_db = -13.983
+
+[node name="Souls" type="Node2D" parent="."]
+
+[node name="soul" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 516, 312 )
+
+[node name="soul2" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 915, 219 )
+
+[node name="soul3" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 1433, -48 )
+
+[node name="soul4" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 1689, -200 )
+
+[node name="soul5" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 2585, 128 )
+
+[node name="soul6" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 3532, 325 )
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Tiles"]
+position = Vector2( -3, -2 )
+tile_set = ExtResource( 2 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( -65512, 7, 0, -65511, 7, 0, -65510, 7, 0, 65556, 7, 0, 65557, 7, 0, 65558, 7, 0, 131072, 4, 0, 131117, 7, 0, 131118, 7, 0, 131119, 7, 0, 196624, 7, 0, 196625, 7, 0, 196626, 7, 0, 262178, 7, 0, 262181, 7, 0, 262184, 7, 0, 262187, 7, 0, 327691, 7, 0, 327692, 7, 0, 327693, 7, 0, 327694, 7, 0, 393216, 7, 0, 393217, 7, 0, 393218, 7, 0, 393219, 7, 0, 393220, 7, 0, 393221, 7, 0, 393222, 7, 0, 393223, 7, 0, 393224, 7, 0, 393245, 7, 0, 393246, 7, 0, 393247, 7, 0, 393248, 7, 0, 393265, 7, 0, 393266, 7, 0, 393267, 7, 0, 393268, 7, 0, 393271, 7, 0, 393274, 7, 0, 393275, 7, 0, 393276, 7, 0, 393277, 7, 0, 917541, 4, 0, 917542, 4, 0, 917543, 4, 0 )
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="icicle2" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 764, 281 )
+
+[node name="icicle3" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 1064, 153 )
+
+[node name="icicle4" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 1312, 22 )
+
+[node name="icicle5" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 1573, -104 )
+
+[node name="icicle6" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 1943, 351 )
+
+[node name="icicle7" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 3195, 345 )
+
+[node name="Enemy" parent="Enemy" instance=ExtResource( 10 )]
+position = Vector2( 1893, 180 )
+
+[node name="Enemy2" parent="Enemy" instance=ExtResource( 10 )]
+position = Vector2( 2918, 299 )
+
+[node name="ices" type="Node2D" parent="."]
+
+[node name="ice_8" parent="ices" instance=ExtResource( 7 )]
+position = Vector2( 150, 539 )
+
+[node name="ice_11" parent="ices" instance=ExtResource( 7 )]
+position = Vector2( 2722, 537 )
+
+[node name="ice_12" parent="ices" instance=ExtResource( 7 )]
+position = Vector2( 1694, 539 )
+
+[node name="clouds" type="Node2D" parent="."]
+
+[node name="cloud" parent="clouds" instance=ExtResource( 15 )]
+position = Vector2( 2216, 96 )
+
+[node name="cloud2" parent="clouds" instance=ExtResource( 15 )]
+position = Vector2( 120, 240 )
+
+[node name="cloud3" parent="clouds" instance=ExtResource( 15 )]
+position = Vector2( 1424, 312 )
+
+[node name="cloud4" parent="clouds" instance=ExtResource( 15 )]
+position = Vector2( 1720, -184 )
+
+[node name="cloud5" parent="clouds" instance=ExtResource( 15 )]
+position = Vector2( 3320, 232 )
+
+[connection signal="timeout" from="HealthBar/ProgressBar/Timer" to="HealthBar/ProgressBar" method="_on_Timer_timeout"]
+[connection signal="soul_collected" from="Souls/soul" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul2" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul3" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul4" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul5" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul6" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="body_entered" from="Enemy/icicle2" to="Enemy/icicle2" method="_on_icicle2_body_entered"]
+[connection signal="lose_health" from="Enemy/icicle2" to="HUD" method="_on_icicle2_lose_health"]
+[connection signal="body_entered" from="Enemy/icicle3" to="Enemy/icicle3" method="_on_icicle2_body_entered"]
+[connection signal="lose_health" from="Enemy/icicle3" to="HUD" method="_on_icicle2_lose_health"]
+[connection signal="body_entered" from="Enemy/icicle4" to="Enemy/icicle4" method="_on_icicle2_body_entered"]
+[connection signal="lose_health" from="Enemy/icicle4" to="HUD" method="_on_icicle2_lose_health"]
+[connection signal="body_entered" from="Enemy/icicle5" to="Enemy/icicle5" method="_on_icicle2_body_entered"]
+[connection signal="lose_health" from="Enemy/icicle5" to="HUD" method="_on_icicle2_lose_health"]
+[connection signal="body_entered" from="Enemy/icicle6" to="Enemy/icicle6" method="_on_icicle2_body_entered"]
+[connection signal="lose_health" from="Enemy/icicle6" to="HUD" method="_on_icicle2_lose_health"]
+[connection signal="body_entered" from="Enemy/icicle7" to="Enemy/icicle7" method="_on_icicle2_body_entered"]
+[connection signal="lose_health" from="Enemy/icicle7" to="HUD" method="_on_icicle2_lose_health"]
+[connection signal="lose_health" from="Enemy/Enemy" to="HUD" method="_on_Enemy_lose_health"]
+[connection signal="lose_health" from="Enemy/Enemy2" to="HUD" method="_on_Enemy_lose_health"]
+[connection signal="body_entered" from="ices/ice_8" to="ices/ice_8" method="_on_ice_body_entered"]
+[connection signal="body_entered" from="ices/ice_11" to="ices/ice_11" method="_on_ice_body_entered"]
+[connection signal="body_entered" from="ices/ice_12" to="ices/ice_12" method="_on_ice_body_entered"]

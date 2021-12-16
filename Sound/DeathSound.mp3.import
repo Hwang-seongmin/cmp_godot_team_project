@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DeathSound.mp3-62ca1b328dd33ca76c0b2fcfda3fc95a.mp3str"
+
+[deps]
+
+source_file="res://Sound/DeathSound.mp3"
+dest_files=[ "res://.import/DeathSound.mp3-62ca1b328dd33ca76c0b2fcfda3fc95a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

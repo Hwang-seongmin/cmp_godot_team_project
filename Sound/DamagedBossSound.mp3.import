@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DamagedBossSound.mp3-191e28e5922b24f2f8f9bacf94e7c231.mp3str"
+
+[deps]
+
+source_file="res://Sound/DamagedBossSound.mp3"
+dest_files=[ "res://.import/DamagedBossSound.mp3-191e28e5922b24f2f8f9bacf94e7c231.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

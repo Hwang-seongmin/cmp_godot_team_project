@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/IceSound.mp3-daabaf411c066044ab245818ed1d7688.mp3str"
+
+[deps]
+
+source_file="res://Sound/IceSound.mp3"
+dest_files=[ "res://.import/IceSound.mp3-daabaf411c066044ab245818ed1d7688.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

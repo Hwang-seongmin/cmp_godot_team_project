@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/KilledBossSound.mp3-a3524d1d23a4c1ad8f67eda46acd2cdd.mp3str"
+
+[deps]
+
+source_file="res://Sound/KilledBossSound.mp3"
+dest_files=[ "res://.import/KilledBossSound.mp3-a3524d1d23a4c1ad8f67eda46acd2cdd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

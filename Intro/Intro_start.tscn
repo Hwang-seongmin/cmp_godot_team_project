@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Intro/Intro_start.gd" type="Script" id=1]
+[ext_resource path="res://Intro/Intro.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeIn"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeOut"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="IntroStart" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 1 )
+anims/FadeOut = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 516, 154 )
+scale = Vector2( 2.16, 1.88 )
+texture = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = -32.0
+margin_right = 1032.0
+margin_bottom = 576.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="Control"]
+margin_left = 416.0
+margin_top = 308.0
+margin_right = 608.0
+margin_bottom = 380.0
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Button" parent="Control"]
+margin_left = 416.0
+margin_top = 389.0
+margin_right = 608.0
+margin_bottom = 461.0
+text = "CONTROL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Story" type="Button" parent="Control"]
+margin_left = 416.0
+margin_top = 469.0
+margin_right = 608.0
+margin_bottom = 541.0
+text = "STORY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Control/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Control/Control" to="." method="_on_Control_pressed"]
+[connection signal="pressed" from="Control/Story" to="." method="_on_Story_pressed"]

@@ -1,0 +1,153 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tiles/tileset.res" type="TileSet" id=2]
+[ext_resource path="res://Scenes/soul.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/HUD.gd" type="Script" id=4]
+[ext_resource path="res://Font/KOTRA HOPE_TTF.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/King.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sound/CollectSound.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Scripts/Fists.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Fire.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sound/PunchSound.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Scenes/cloud.tscn" type="PackedScene" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 5 )
+
+[node name="HellOfViolence" type="Node2D"]
+
+[node name="Jingwang" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3836, 248 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 311, 363 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 4 )
+
+[node name="souls" type="Label" parent="HUD"]
+margin_left = 441.0
+margin_top = 28.0
+margin_right = 632.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 1 )
+text = "00"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Live" type="Label" parent="HUD"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goal" type="Label" parent="HUD"]
+margin_left = 144.0
+margin_top = -2.0
+margin_right = 300.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+text = "Goal souls : 400"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource( 8 )
+volume_db = -11.361
+
+[node name="PunchSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource( 11 )
+volume_db = -23.596
+
+[node name="Souls" type="Node2D" parent="."]
+
+[node name="soul" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 516, 312 )
+
+[node name="soul2" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 789, 239 )
+
+[node name="soul3" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 1083, 93 )
+
+[node name="soul4" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 1432, 220 )
+
+[node name="soul5" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 1917, 302 )
+
+[node name="soul6" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 2572, 143 )
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Tiles"]
+position = Vector2( -3, -2 )
+tile_set = ExtResource( 2 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 131072, 4, 0, 131119, 5, 0, 131120, 5, 0, 131121, 5, 0, 131122, 5, 0, 196624, 5, 0, 196625, 5, 0, 196626, 5, 0, 196627, 5, 0, 262176, 5, 0, 262177, 5, 0, 262178, 5, 0, 262179, 5, 0, 262186, 5, 0, 262187, 5, 0, 262188, 5, 0, 262189, 5, 0, 327691, 5, 0, 327692, 5, 0, 327693, 5, 0, 327694, 5, 0, 327701, 5, 0, 327702, 5, 0, 327703, 5, 0, 327704, 5, 0, 393216, 5, 0, 393217, 5, 0, 393218, 5, 0, 393219, 5, 0, 393220, 5, 0, 393221, 5, 0, 393222, 5, 0, 393223, 5, 0, 393224, 5, 0, 393243, 5, 0, 393244, 5, 0, 393245, 5, 0, 393246, 5, 0, 393253, 5, 0, 393254, 5, 0, 393255, 5, 0, 393256, 5, 0, 393268, 5, 0, 393269, 5, 0, 393270, 5, 0, 393271, 5, 0, 393274, 5, 0, 393275, 5, 0, 393276, 5, 0, 393277, 5, 0, 917541, 4, 0, 917542, 4, 0, 917543, 4, 0 )
+
+[node name="Fires" type="Node2D" parent="."]
+
+[node name="Fire_2" parent="Fires" instance=ExtResource( 10 )]
+position = Vector2( 485, 500 )
+
+[node name="Fire_3" parent="Fires" instance=ExtResource( 10 )]
+position = Vector2( 1988, 500 )
+
+[node name="Fire_4" parent="Fires" instance=ExtResource( 10 )]
+position = Vector2( 3515, 500 )
+
+[node name="Fists" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 220, 195 )
+
+[node name="Enemy2" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 1377, 242 )
+
+[node name="Enemy3" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 3056, 313 )
+
+[node name="clouds" type="Node2D" parent="."]
+
+[node name="cloud" parent="clouds" instance=ExtResource( 12 )]
+position = Vector2( 744, 240 )
+
+[node name="cloud2" parent="clouds" instance=ExtResource( 12 )]
+position = Vector2( 1784, 312 )
+
+[node name="cloud3" parent="clouds" instance=ExtResource( 12 )]
+position = Vector2( 88, 96 )
+
+[node name="cloud4" parent="clouds" instance=ExtResource( 12 )]
+position = Vector2( 3088, 56 )
+
+[connection signal="body_entered" from="Jingwang" to="Jingwang" method="_on_Jingwang_body_entered"]
+[connection signal="soul_collected" from="Souls/soul" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul2" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul3" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul4" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul5" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul6" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="lose_health" from="Fires/Fire_2" to="HUD" method="_on_Fire_2_lose_health"]
+[connection signal="lose_health" from="Fists" to="HUD" method="_on_Fists_lose_health"]
+[connection signal="lose_health" from="Enemy/Enemy" to="HUD" method="_on_Enemy_lose_health"]
+[connection signal="lose_health" from="Enemy/Enemy2" to="HUD" method="_on_Enemy_lose_health"]
+[connection signal="lose_health" from="Enemy/Enemy3" to="HUD" method="_on_Enemy_lose_health"]
