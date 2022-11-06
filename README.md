@@ -16,3 +16,5 @@
 ![슬라이드7](https://user-images.githubusercontent.com/90667568/200167569-087a2e20-aae5-43b3-9c74-df7564c7ab9d.JPG)
 
 ![슬라이드8](https://user-images.githubusercontent.com/90667568/200167621-6893a816-65de-4888-be07-af7f133b3ded.jpg)
+## Trailer Video
+https://user-images.githubusercontent.com/90667568/200170452-7b3bcd70-8b8c-489e-935f-d6cb643b3217.mp4
