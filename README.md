@@ -1,9 +1,14 @@
 # CMP Processing Team06 Project
 - Like 2D Adventure Game
+
 ## Credits
 - 201621085 Gwang-jin Kim
 - 201721063 Seong-min Hwang
 - 202011111 Yu-mi Jun
+
+## Trailer Video
+https://user-images.githubusercontent.com/90667568/200170452-7b3bcd70-8b8c-489e-935f-d6cb643b3217.mp4
+
 ## Explanation
 ![슬라이드3](https://user-images.githubusercontent.com/90667568/200167551-7979c2d4-a236-44b7-8f16-5b6e904eaa3d.JPG)
 
@@ -16,5 +21,3 @@
 ![슬라이드7](https://user-images.githubusercontent.com/90667568/200167569-087a2e20-aae5-43b3-9c74-df7564c7ab9d.JPG)
 
 ![슬라이드8](https://user-images.githubusercontent.com/90667568/200167621-6893a816-65de-4888-be07-af7f133b3ded.jpg)
-## Trailer Video
-https://user-images.githubusercontent.com/90667568/200170452-7b3bcd70-8b8c-489e-935f-d6cb643b3217.mp4
