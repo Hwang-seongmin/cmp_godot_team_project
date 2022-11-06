@@ -4,7 +4,7 @@
 - 201621085 Gwang-jin Kim
 - 201721063 Seong-min Hwang
 - 202011111 Yu-mi Jun
-### Explanation
+## Explanation
 ![슬라이드3](https://user-images.githubusercontent.com/90667568/200167551-7979c2d4-a236-44b7-8f16-5b6e904eaa3d.JPG)
 
 ![슬라이드4](https://user-images.githubusercontent.com/90667568/200167563-5abfcb0f-f509-4cd0-8f22-72efc59acb03.JPG)
